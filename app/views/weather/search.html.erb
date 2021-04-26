@@ -1,0 +1,23 @@
+<h1>Search result</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Region</th>
+    <th>Country</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @search_list.each do |item| %>
+    <tr>
+      <td > <%= item['name'] %></td>
+      <td style="padding:0 35px 0 35px;"><%= item['region'] %></td>
+      <td style="padding:0 35px 0 35px;"><%= item['country'] %></td>
+
+      <td><%=  link_to 'show','weather/'+item['name'].to_s  %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
