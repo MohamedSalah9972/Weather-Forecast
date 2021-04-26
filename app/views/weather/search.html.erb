@@ -1,3 +1,6 @@
+<% if @search_list == nil %>
+<h1> No search result</h1>  <!-- if there is no search result -->
+<% else %>
 <h1>Search result</h1>
 <table>
   <thead>
@@ -20,4 +23,4 @@
   <% end %>
   </tbody>
 </table>
-
+<% end %>

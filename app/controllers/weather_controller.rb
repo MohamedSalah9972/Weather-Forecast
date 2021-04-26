@@ -10,8 +10,12 @@ class WeatherController < ApplicationController
     query = params.permit(:search_name)
     uri = URI("http://api.weatherapi.com/v1/search.json?key=b327a9d2b25d4573853112229201912&q=" + query[:search_name])
     res = Net::HTTP.get_response(uri)
-    res = JSON.parse(res.body)
-    @search_list = res
+    puts "code" + res.code
+    if res.code == '200'
+      @search_list = JSON.parse(res.body)
+    elsif
+      @search_list = nil
+    end
   end
 
   def show
